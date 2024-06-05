@@ -57,4 +57,18 @@ public class SidePanelTest extends BaseTest{
         adminAuthPage.errorMessageTextPasswordCheck("Invalid credentials");
     }
 
+    @Test
+    public void searchBarExactTextLink(){
+        //Auth
+        loginPage.enterUsername("Admin");
+        loginPage.enterPassword("admin123");
+        loginPage.clickOnLoginButton();
+        //enter "Time" to search input field
+        sidePanel.enterTimeInSearchBar("Time");
+        //Check that there is only one link
+        sidePanel.checkLinksNumber(1);
+        //Check that there is "Time" link
+        sidePanel.checkTimeLinkIsDisplayed();
+    }
+
 }

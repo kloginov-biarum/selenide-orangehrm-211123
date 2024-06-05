@@ -2,15 +2,20 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byCssSelector;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class AdminAuthPage {
 
     private SelenideElement usernameInput = $("[name=\"username\"]");
     private SelenideElement passwordInput = $("[type=\"password\"]");
     private SelenideElement confirmButton = $("[type=\"submit\"]");
-    private SelenideElement errorMessageTextPassword = $(byCssSelector("[class=\"oxd-text oxd-text--p oxd-alert-content-text\"]"));
+    private SelenideElement errorMessageTextPassword = $x("//*[@class='oxd-text oxd-text--p oxd-alert-content-text']");
+            //$(byXpath("//*[@class=\"oxd-text oxd-text--p oxd-alert-content-text\"]"));
+            //$(byClassName("oxd-text oxd-text--p oxd-alert-content-text"));
+            //$(byClassName("oxd-alert-content-text"));
+            //$(byCssSelector("[class=\"oxd-text oxd-text--p oxd-alert-content-text\"]"));
 
     public void enterUsername(String usernameValue) {
         usernameInput.setValue(usernameValue);

@@ -19,6 +19,9 @@ public class SidePanel {
 
     private SelenideElement maintenanceLink = $(byCssSelector("a[href='/web/index.php/maintenance/viewMaintenanceModule']"));
 
+    private SelenideElement searchBar = $("[placeholder=\"Search\"]");
+
+    private SelenideElement timeLink = $("[href=\"/web/index.php/time/viewTimeModule\"]");
     public void checkAllLinks(){
         links.shouldHave(CollectionCondition.size(12));
     }
@@ -35,6 +38,17 @@ public class SidePanel {
         maintenanceLink.click();
     }
 
+    public void enterTimeInSearchBar(String searchValue){
+        searchBar.setValue(searchValue);
 
+    }
+
+    public void checkLinksNumber(int expectedSize) {
+        links.shouldHave(CollectionCondition.size(expectedSize));
+    }
+
+    public void checkTimeLinkIsDisplayed(){
+        timeLink.shouldBe(Condition.visible);
+    }
 
 }
