@@ -21,4 +21,7 @@ public class BaseTest {
     ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
     SidePanel sidePanel = new SidePanel();
     AdminPage adminPage = new AdminPage();
+    PimPage pimPage = new PimPage();
+    AdminAuthPage adminAuthPage = new AdminAuthPage();
+    MaintenancePage maintenancePage = new MaintenancePage();
 }

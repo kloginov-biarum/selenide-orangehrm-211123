@@ -22,4 +22,27 @@ public class SidePanelTest extends BaseTest{
         adminPage.checkAdminHeader();
     }
 
+    @Test
+    public void pimLinkTest(){
+        loginPage.enterUsername("Admin");
+        loginPage.enterPassword("admin123");
+        loginPage.clickOnLoginButton();
+        sidePanel.followPimLink();
+        pimPage.checkPimHeader("PIM");
+    }
+    @Test
+    public void maintenanceLinkTestValidCred(){
+        //Auth
+        loginPage.enterUsername("Admin");
+        loginPage.enterPassword("admin123");
+        loginPage.clickOnLoginButton();
+        //Follow maintenance link
+        sidePanel.followMaintenanceLink();
+        //Administrator Access auth
+        adminAuthPage.enterPassword("admin123");
+        adminAuthPage.clickOnConfirmButton();
+        //Check Maintenance page
+        maintenancePage.checkMaintenanceHeader();
+    }
+
 }
