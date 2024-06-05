@@ -45,4 +45,16 @@ public class SidePanelTest extends BaseTest{
         maintenancePage.checkMaintenanceHeader();
     }
 
+    @Test
+    public void maintenanceLinkTestINValidCred() {
+        //Invalid credentials ERROR MESSAGE TEXT
+        loginPage.enterUsername("Admin");
+        loginPage.enterPassword("admin123");
+        loginPage.clickOnLoginButton();
+        sidePanel.followMaintenanceLink();
+        adminAuthPage.enterPassword("2656327");
+        adminAuthPage.clickOnConfirmButton();
+        adminAuthPage.errorMessageTextPasswordCheck("Invalid credentials");
+    }
+
 }

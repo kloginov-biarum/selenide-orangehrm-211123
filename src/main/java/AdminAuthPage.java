@@ -2,6 +2,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selenide.$;
 
 public class AdminAuthPage {
@@ -9,6 +10,7 @@ public class AdminAuthPage {
     private SelenideElement usernameInput = $("[name=\"username\"]");
     private SelenideElement passwordInput = $("[type=\"password\"]");
     private SelenideElement confirmButton = $("[type=\"submit\"]");
+    private SelenideElement errorMessageTextPassword = $(byCssSelector("[class=\"oxd-text oxd-text--p oxd-alert-content-text\"]"));
 
     public void enterUsername(String usernameValue) {
         usernameInput.setValue(usernameValue);
@@ -20,5 +22,8 @@ public class AdminAuthPage {
 
     public void clickOnConfirmButton (){
         confirmButton.shouldBe(visible).click();
+    }
+    public void errorMessageTextPasswordCheck(String requiredText){
+        errorMessageTextPassword.shouldBe(visible).shouldHave(text(requiredText));
     }
 }
