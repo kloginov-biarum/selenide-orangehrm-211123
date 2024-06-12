@@ -8,11 +8,6 @@ public class BaseTest {
 
     @BeforeEach
     public void setUp(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-infobars");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--disable-notifications");
-        Configuration.browserCapabilities = options;
         open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 

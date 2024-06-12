@@ -64,11 +64,59 @@ public class SidePanelTest extends BaseTest{
         loginPage.enterPassword("admin123");
         loginPage.clickOnLoginButton();
         //enter "Time" to search input field
-        sidePanel.enterTimeInSearchBar("Time");
+        sidePanel.enterValueInSearchBar("Time");
         //Check that there is only one link
         sidePanel.checkLinksNumber(1);
         //Check that there is "Time" link
         sidePanel.checkTimeLinkIsDisplayed();
     }
+
+    @Test
+    public void searchBarInvalidLinkTest(){
+        //Enter unexisting text link
+        loginPage.enterUsername("Admin");
+        loginPage.enterPassword("admin123");
+        loginPage.clickOnLoginButton();
+        sidePanel.enterValueInSearchBar("bvszxgchjxc");
+        sidePanel.checkLinksNumber(0);
+    }
+
+    @Test
+    public void searchBarPartTextLink(){
+        loginPage.enterUsername("Admin");
+        loginPage.enterPassword("admin123");
+        loginPage.clickOnLoginButton();
+        sidePanel.enterValueInSearchBar("ma");
+        sidePanel.checkAllLinksHaveText("ma");
+        sidePanel.checkLinksTexts();
+        //Enter "ma"
+        //Check that there are 2 links
+        //Check that all links contains search value
+    }
+
+
+    //clear()
+    @Test
+    public void searchBarDeleteSearchQuery(){
+        //Auth
+        //Remember how much links are on side panel (int quantityOfLinks)
+        //Enter search query
+        //Delete searh query
+        //Check that we have the same quantity (int quantityOfLinks)
+    }
+
+    @Test
+    public void rollOutTest(){
+        //AUTH
+        //Click on the arrow button of the side panel
+        //Check that side panel is rolled out
+
+        //Click on the arrow button of the side panel
+        //Check that there are 12 links
+        //Check that all links have neccesary texts
+    }
+
+
+
 
 }

@@ -2,7 +2,10 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -38,7 +41,8 @@ public class SidePanel {
         maintenanceLink.click();
     }
 
-    public void enterTimeInSearchBar(String searchValue){
+    public void enterValueInSearchBar(String searchValue){
+
         searchBar.setValue(searchValue);
 
     }
@@ -51,4 +55,14 @@ public class SidePanel {
         timeLink.shouldBe(Condition.visible);
     }
 
+
+    public void checkAllLinksHaveText(String expectedPartText){
+        for (SelenideElement link: links) {
+            link.shouldHave(text(expectedPartText));
+        }
+    }
+
+    public void checkLinksTexts(){
+        links.filter(visible).shouldHave(CollectionCondition.exactTexts("Maintenance", "Performance"));
+    }
 }

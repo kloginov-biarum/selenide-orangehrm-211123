@@ -28,6 +28,9 @@ public class LoginPage {
     private SelenideElement youtubeLink = $("[href=\"https://www.youtube.com/c/OrangeHRMInc\"]");
 
     private SelenideElement linkedInLink = $("[href=\"https://www.linkedin.com/company/orangehrm/mycompany/\"]");
+
+    private SelenideElement headerLogo = $("[alt=\"company-branding\"]");
+
     //twitterLinkIsDisplayed
     public void twitterLinkIsDisplayed(){
         twitterLink.shouldBe(visible);
@@ -82,5 +85,9 @@ public class LoginPage {
     //follow the forgot password link
     public void clickOnForgotPasswordLink(){
         forgotPasswordLink.click();
+    }
+
+    public void headerLogoIsDisplayed(){
+        headerLogo.shouldBe(visible);
     }
 }

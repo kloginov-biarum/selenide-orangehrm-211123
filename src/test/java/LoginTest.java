@@ -14,7 +14,7 @@ public class LoginTest extends BaseTest{
 
 
     @Test
-    public void successLogin(){
+    public void successLoginTest(){
 
        loginPage.enterUsername("Admin");
        loginPage.enterPassword("admin123");
@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void invalidPassword(){
+    public void invalidPasswordTest(){
         loginPage.enterUsername("Admin");
         loginPage.enterPassword("admin");
         loginPage.clickOnLoginButton();
@@ -40,7 +40,7 @@ public class LoginTest extends BaseTest{
 
     //Empty password
     @Test
-    public void emptyPass(){
+    public void testEmptyPass(){
         //error message "Required" is displayed under the password input field
         loginPage.enterUsername("Admin");
         loginPage.clickOnLoginButton();
@@ -96,5 +96,11 @@ public class LoginTest extends BaseTest{
     }
     //facebook
     //youtube
+
+    @Test
+    public void checkLogo(){
+        loginPage.headerLogoIsDisplayed();
+    }
+
 
 }
