@@ -8,6 +8,12 @@ public class BaseTest {
 
     @BeforeEach
     public void setUp(){
+       //Configuration.timeout = 20000;
+        //Configuration.browser = "firefox";
+       // Configuration.browserSize = "100x100";
+       // Configuration.headless = true;
+        //Configuration.fastSetValue = true;
+        //Configuration.clickViaJs = true;
         open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 

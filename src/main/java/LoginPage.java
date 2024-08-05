@@ -2,13 +2,20 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
 
-    private SelenideElement username =  $("[name=\"username\"]");
+    private SelenideElement username =  $(Selectors.byName("username"));
+            //$(Selectors.byAttribute("name", "username"));
+            //$("[name=\"username\"]");
+
+
 
     private SelenideElement password = $("[name=\"password\"]");
 
@@ -88,6 +95,10 @@ public class LoginPage {
     }
 
     public void headerLogoIsDisplayed(){
-        headerLogo.shouldBe(visible);
+        headerLogo.shouldBe(visible, Duration.ofSeconds(10));
+    }
+
+    public void headerLogoIsCorrect(){
+        //src attribute value has "/web/images/ohrm_branding.png"
     }
 }

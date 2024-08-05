@@ -15,7 +15,6 @@ public class LoginTest extends BaseTest{
 
     @Test
     public void successLoginTest(){
-
        loginPage.enterUsername("Admin");
        loginPage.enterPassword("admin123");
        loginPage.clickOnLoginButton();
